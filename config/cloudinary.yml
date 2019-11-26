@@ -1,0 +1,12 @@
+development:
+  cloud_name: "progimage-dev"
+  api_key: "463225863245939"
+  api_secret: "49m6Ai_8xz59SBWYYW5Tjax01Dc"
+  secure: true
+  cdn_subdomain: true
+test:
+  cloud_name: "progimage-dev"
+  api_key: "463225863245939"
+  api_secret: "49m6Ai_8xz59SBWYYW5Tjax01Dc"
+  secure: true
+  cdn_subdomain: true

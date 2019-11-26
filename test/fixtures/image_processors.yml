@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  public_id: MyString
+  version: MyString
+  format: MyString
+  url: MyString
+  secure_url: MyString
+  original_filename: MyString
+
+two:
+  public_id: MyString
+  version: MyString
+  format: MyString
+  url: MyString
+  secure_url: MyString
+  original_filename: MyString
