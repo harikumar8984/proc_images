@@ -1,0 +1,45 @@
+version: '3'
+networks:
+  default:
+    external:
+      name: prog_net
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data 
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    image: prog_image_application
+    volumes:
+      - .:/prog_image
+    ports:
+      - "3000:3000"
+    tty: true
+    stdin_open: true  
+    depends_on:
+      - db
+      - redis
+      - sidekiq
+    links:
+      - redis
+      - sidekiq  
+  redis:
+    image: redis:alpine
+    command: ["redis-server", "--bind", "redis", "--port", "6379"]  
+    expose:
+      - "6379" 
+    volumes:
+      - prog_image-redis:/var/lib/redis/data   
+  sidekiq:
+    depends_on:
+      - redis
+    volumes:
+      - .:/prog_image  
+    build: .
+    command: bundle exec sidekiq
+    env_file:
+      - .env
+volumes:
+  prog_image-redis:   
