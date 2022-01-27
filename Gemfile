@@ -37,4 +37,4 @@ end
 
 gem 'cloudinary'
 gem 'prog_image_manager', '~> 0.2.0'
-gem 'sidekiq', '~> 6.0.0'
+gem 'sidekiq', '~> 6.4.0'
